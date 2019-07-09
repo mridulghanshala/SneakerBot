@@ -21,7 +21,7 @@ $ pip install selenium
 
 #### STEP TWO
 Create a config.py file in the local directory that looks similar to this for each order you are placing.
-
+```
 keys = {
     "product_name":"stan-smith-shoes",
     "product_model":"M20324",
@@ -38,9 +38,7 @@ keys = {
     "expiry":"02/2023",
     "card_number": "4094439936008035"
 }
-
-}
-
+```
 #### STEP THREE
 You may have to download the correct chromedriver for you operating system (Linux/OSX/Windows), put the chromedriver the SneakerBot directory with the script.
 
