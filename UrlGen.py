@@ -4,6 +4,7 @@
 # Add to Cart Button
 # Checkout Pop up
 # Checkout complete
+# Payment complete
 
 
 from selenium import webdriver
@@ -72,6 +73,30 @@ def addToCart(myUrl):
             myel1=WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="shippingoptions"]/div/ul/li[2]/label/div[2]/span[1]')))
             driver.execute_script("arguments[0].click();", myel1)
           driver.find_element_by_xpath('//*[@id="dwfrm_delivery_savedelivery"]').click()
+
+          WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//input[@id='dwfrm_adyenencrypted_number']"))).send_keys(keys['card_number'])
+          full_name=keys["first_name"]+" "+keys["last_name"]
+          driver.find_element_by_xpath("//input[@id='dwfrm_adyenencrypted_holderName']").send_keys(full_name)
+          driver.find_element_by_xpath("//input[@id='dwfrm_adyenencrypted_cvc']").send_keys(keys['card_cvv'])
+          month=keys['expiry'].split('/')[0]
+          year=keys['expiry'].split('/')[1]
+
+          months={"01":"//div[contains(@class,'formfield month')]//li[2]","02":"//div[contains(@class,'formfield month')]//li[3]","03":"//div[contains(@class,'formfield month')]//li[4]","04":"//div[contains(@class,'formfield month')]//li[5]","05":"//div[contains(@class,'formfield month')]//li[6]","06":"//div[contains(@class,'formfield month')]//li[7]","07":"//div[contains(@class,'formfield month')]//li[8]","08":"//div[contains(@class,'formfield month')]//li[9]","09":"//div[contains(@class,'ffSelectWrapper active')]//li[contains(@class,'selectoption on')]","10":"//div[contains(@class,'formfield month')]//li[11]","11":"//div[contains(@class,'formfield month')]//li[12]","12":"//div[contains(@class,'formfield month')]//li[13]"}
+          m = str(months[str(month)])
+          dropdown = driver.find_element_by_class_name("ffSelectButton")
+          dropdown.click()
+          element = WebDriverWait(driver, 20).until(
+              EC.element_to_be_clickable((By.XPATH, m)))
+          driver.execute_script("arguments[0].click();", element)
+
+          years={"2019":"//div[contains(@class,'formfield year nobr')]//li[2]","2020":"//div[contains(@class,'formfield year nobr')]//li[3]","2021":"//div[contains(@class,'formfield year nobr')]//li[4]","2022":"//div[contains(@class,'formfield year nobr')]//li[5]","2023":"//div[contains(@class,'formfield year nobr')]//li[6]","2024":"//div[contains(@class,'formfield year nobr')]//li[7]","2025":"//div[contains(@class,'formfield year nobr')]//li[8]","2026":"//div[contains(@class,'formfield year nobr')]//li[9]","2027":"//div[contains(@class,'formfield year nobr')]//li[10]","2028":"//div[contains(@class,'formfield year nobr')]//li[11]","2029":"//div[contains(@class,'formfield year nobr')]//li[12]","2030":"//div[contains(@class,'formfield year nobr')]//li[13]","2031":"//div[contains(@class,'formfield year nobr')]//li[14]","2032":"//div[contains(@class,'formfield year nobr')]//li[15]","2033":"//div[contains(@class,'formfield year nobr')]//li[16]","2034":"//div[contains(@class,'formfield year nobr')]//li[17]","2035":"//div[contains(@class,'formfield year nobr')]//li[18]","2036":"//div[contains(@class,'formfield year nobr')]//li[19]","2037":"//div[contains(@class,'formfield year nobr')]//li[20]","2038":"//div[contains(@class,'formfield year nobr')]//li[21]","2039":"//div[contains(@class,'formfield year nobr')]//li[22]"}
+          dropdown = driver.find_element_by_xpath("//div[contains(@class,'formfield year nobr')]//a[contains(@class,'ffSelectButton')]")
+          dropdown.click()
+          y = str(years[str(year)])
+          element = WebDriverWait(driver, 20).until(
+              EC.element_to_be_clickable((By.XPATH, y)))
+          driver.execute_script("arguments[0].click();", element)
+          driver.find_element_by_xpath("//div[@class='outer-payment-submit stylerefresh']//button[@class='co-btn_primary btn_showcart button-full-width button-ctn button-brd adi-gradient-blue button-forward']").click()
 
 if __name__ == '__main__':
      # load chrome
