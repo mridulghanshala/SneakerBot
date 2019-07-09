@@ -2,6 +2,8 @@
 # https://www.adidas.ca/en/gazelle-shoes/BB5478.html?forceSelSize=BB5478_530 Size=4
 # What sizes are currently available
 # Add to Cart Button
+# Checkout Pop up
+# Checkout complete
 
 
 from selenium import webdriver
@@ -10,7 +12,6 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
-
 from config import keys
 
 
@@ -55,7 +56,6 @@ def addToCart(myUrl):
           element = WebDriverWait(driver, 20).until(
               EC.element_to_be_clickable((By.XPATH, province)))
           driver.execute_script("arguments[0].click();", element)
-          driver.find_element_by_xpath("//div[contains(@class,'checkbox error-client')]//div[contains(@class,'ffCheckboxWrapper')]")
           driver.find_element_by_xpath("//input[@id='dwfrm_delivery_singleshipping_shippingAddress_addressFields_firstName']").send_keys(keys['first_name'])
           driver.find_element_by_xpath("//input[@id='dwfrm_delivery_singleshipping_shippingAddress_addressFields_lastName']").send_keys(keys['last_name'])
           driver.find_element_by_xpath("//input[@id='dwfrm_delivery_singleshipping_shippingAddress_addressFields_address1']").send_keys(keys['street_address'])
@@ -63,7 +63,15 @@ def addToCart(myUrl):
           driver.find_element_by_xpath("//input[@id='dwfrm_delivery_singleshipping_shippingAddress_addressFields_zip']").send_keys(keys['zip_code'])
           driver.find_element_by_xpath("//input[@id='dwfrm_delivery_singleshipping_shippingAddress_addressFields_phone']").send_keys(keys['phone_number'])
           driver.find_element_by_xpath("//input[@id='dwfrm_delivery_singleshipping_shippingAddress_email_emailAddress']").send_keys(keys['email'])
-
+          el = WebDriverWait(driver, 60).until(EC.element_to_be_clickable(
+              (By.XPATH, '//*[@id="dwfrm_delivery"]/div[2]/div[2]/div[2]/div[2]/div[1]/div/div/span')))
+          driver.execute_script("arguments[0].click();", el)
+          myel=WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="dwfrm_delivery"]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div/div/div')))
+          driver.execute_script("arguments[0].click();", myel)
+          if keys['shipping'].lower()=="express":
+            myel1=WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="shippingoptions"]/div/ul/li[2]/label/div[2]/span[1]')))
+            driver.execute_script("arguments[0].click();", myel1)
+          driver.find_element_by_xpath('//*[@id="dwfrm_delivery_savedelivery"]').click()
 
 if __name__ == '__main__':
      # load chrome

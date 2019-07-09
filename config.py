@@ -6,6 +6,7 @@ keys = {
     "street_address": "Forest Hills Dr.",
     "city":"Quebec",
     "province_code":"ON",
+    "shipping":"express",
     "email": "email@gmail.com",
     "phone_number": "6789998212",
     "zip_code": "N2L 4V9",

@@ -5,4 +5,5 @@ Solution:SneakerBot, written in Python allows users to directly checkout shoes a
 <li>Url Generation:Generating URL based on model number and size</li>
 <li>Data Acquisition: Scraping using Selenium Web Driver and Beautiful Soup to retrieve available sizes.</li>
 <li>Add to Cart: Adding to cart along with checkout on popup banner</li>
+<li>Checkout completed with shipping option onto payment now</li>
 </ul>
