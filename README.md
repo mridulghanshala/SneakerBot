@@ -40,7 +40,6 @@ keys = {
 }
 
 }
-```
 
 #### STEP THREE
 You may have to download the correct chromedriver for you operating system (Linux/OSX/Windows), put the chromedriver the SneakerBot directory with the script.
