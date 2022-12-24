@@ -1,0 +1,13 @@
+1671863873463	geckodriver	INFO	Listening on 127.0.0.1:57531
+1671863873781	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57532" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/5f/fh2z9lc926dcf4yfmt2q3h5r0000gq/T/rust_mozprofilez4aPnb"
+2022-12-24 12:07:55.611 plugin-container[28596:365525] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-24 12:07:55.612 plugin-container[28596:365525] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1671863875619	Marionette	INFO	Marionette enabled
+2022-12-24 12:07:55.621 plugin-container[28596:365525] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-24 12:07:55.621 plugin-container[28596:365525] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-24 12:07:55.621 plugin-container[28596:365530] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-24 12:07:55.621 plugin-container[28596:365530] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1671863875661	Marionette	INFO	Listening on port 57553
+WebDriver BiDi listening on ws://localhost:57532
+Read port: 57553
+1671863875916	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
