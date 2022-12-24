@@ -1,0 +1,5 @@
+pyee
+websockets
+appdirs
+urllib3
+tqdm

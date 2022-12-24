@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.rst
+requests_file.py
+requirements.txt
+setup.cfg
+setup.py
+requests_file.egg-info/PKG-INFO
+requests_file.egg-info/SOURCES.txt
+requests_file.egg-info/dependency_links.txt
+requests_file.egg-info/requires.txt
+requests_file.egg-info/top_level.txt
+tests/__init__.py

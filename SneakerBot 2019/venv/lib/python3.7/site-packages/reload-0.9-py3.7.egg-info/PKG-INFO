@@ -1,0 +1,32 @@
+Metadata-Version: 1.1
+Name: reload
+Version: 0.9
+Summary: Reload a program if any file in current directory changes.
+Home-page: https://github.com/loomchild/reload
+Author: Jarek Lipski
+Author-email: pub@loomchild.net
+License: MIT
+Description: Reload
+        ------
+        
+        This utility starts given program and reloads it whenever any file in current directory changes. 
+        Paths can be excluded by putting regular expressions matching them in .reloadignore file.
+        
+        Installation::
+        
+            pip install reload
+        
+        Usage::
+        
+        	reload ./server.py
+        
+        Usage from Python::
+        
+            reload_me("server")
+        
+        
+Keywords: reload server
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
